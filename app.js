@@ -21,11 +21,22 @@ $(document).ready(function(){
     // ====================
 
 
+    $("#zip").blur(function() {
+        var $t = $(this);
+        var $e = $("#erreur");
+        if (!$t.val()) {
+            $e.text("Le code postal est vide").show();
+        } else {
+            // Retrieve all playlists by AJAX
+            $e.hide();
+            setLists(source);   
+        }
+    }).blur();
 
-    $("#zip").on('blur', function(){
-        // Retrieve all playlists by AJAX
-        setLists(source);    
-    });
+    // $("#zip").on('blur', function(){
+    //     // Retrieve all playlists by AJAX
+    //     setLists(source);    
+    // });
 
 });
 
